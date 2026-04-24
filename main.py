@@ -15,6 +15,8 @@ def main(page: ft.Page):
         tasks_column.controls.clear()
 
         tasks = main_db.get_tasks(filter_type)
+        if not tasks:
+            tasks_column.controls.append(ft.Text("Список пуст"))    
 
         for task in tasks:
             task_id, task_text, completed = task
